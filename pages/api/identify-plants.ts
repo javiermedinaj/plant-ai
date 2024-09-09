@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const genAI: GoogleGenerativeAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY as string);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    // Hacemos la petición al modelo
+
     const result = await model.generateContent([
       "Identify this plant and provide its name, common name, family, and basic care instructions.",
       { inlineData: { data: image, mimeType: "image/jpeg" } },
